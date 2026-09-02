@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hlsd"
+version = "0.1.0"
+description = "HLS recording daemon: un Source por recurso, ventanas compartidas, streaming en vivo"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "httpx",
+    "click",
+]
+
+[project.optional-dependencies]
+ffmpeg = ["imageio-ffmpeg"]
+monitor = ["psutil"]
+dev = ["pytest", "pytest-asyncio"]
+
+[project.scripts]
+hlsd = "hlsd.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

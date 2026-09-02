@@ -1,0 +1,15 @@
+# hlsd — dependencias
+fastapi
+uvicorn[standard]
+httpx
+click
+
+# ffmpeg portable si no está en PATH (merge y live.mp4)
+imageio-ffmpeg
+
+# opcionales
+psutil          # monitoreo de memoria en /health (si falta, usa fallback)
+
+# desarrollo
+pytest
+pytest-asyncio
